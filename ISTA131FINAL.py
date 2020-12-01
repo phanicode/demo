@@ -26,7 +26,7 @@ def mirror_uv(df):
     df2["V(lambda)"]*=-1
     df2["Iphase(d)"]*=-1
     return df2
-
+print(os.getcwd())
 
 csv_fields= [a.strip() for a in """time(UTC),T1,T2,U(lambda),
 V(lambda),Iamp(Jy),Iphase(d),Isigma(Jy),sqrtu2v2""".split(',')]
@@ -70,7 +70,6 @@ plt.title("r vs Amplitude ( log scaled) scatterplot and regression line")
 plt.xlabel("r(Baseline GLambda)")
 plt.ylabel("Spectral Irradiance amplitude(Jy)")
 plt.yscale("log")
-plt.figure()
 plt.show()
 
 
@@ -83,14 +82,10 @@ plt.show()
 
 
 
-plt.scatter(df_final["time(UTC)"],df_final["Isigma(Jy)"],c=df_final["colors"])
-plt.xlabel("time(UTC)")
-plt.ylabel("Spectral Irradiance amplitude(Jy)")
-plt.show()
-
 
 
 plt.scatter(df_final["time(UTC)"],df_final["Isigma(Jy)"],c=df_final["colors"])
+plt.title(" time vs Spectral irradiance")
 plt.xlabel("time(UTC)")
-plt.ylabel("Spectral Irradiance amplitude(Jy)")
+plt.ylabel("Spectral Irradiance (Jy)")
 plt.show()
